@@ -54,7 +54,7 @@ $ docker run \
 
 ### JVM
 
-By default, the JVM is run with the following options:
+By default, the JVM is run with the [following options](https://github.com/axiom-data-science/docker-tomcat/blob/master/files/javaopts.sh):
 
 * `-server` - server optimized jvm
 * `-d64` - 64-bit jvm
@@ -87,7 +87,7 @@ $ docker run \
 
 ### Users
 
-By default, Tomcat will start with a single `admin` [user account](#). The password is equal to the user name.
+By default, Tomcat will start with a single `admin` [user account](https://github.com/axiom-data-science/docker-tomcat/blob/master/files/tomcat-users.xml). The password is equal to the user name.
 
 **You need to mount your own `tomcat-users.xml` file with different SHA1 digested passwords**.
 If not, anyone who reads this document and knows your server address will have admin Tomcat privileges.
@@ -117,7 +117,7 @@ $ docker run \
     axiom/docker-tomcat
 ```
 
-If you want to disable SSL altogether, you will need to mount a [custom](#) `setup.xml`:
+If you want to disable SSL altogether, you will need to mount a [custom](https://github.com/axiom-data-science/docker-tomcat/blob/master/files/server.xml) `setup.xml`:
 
 ```bash
 $ docker run \
