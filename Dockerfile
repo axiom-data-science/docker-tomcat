@@ -85,7 +85,7 @@ RUN \
         -days 3650 \
         -nodes \
         -x509 \
-        -subj "/C=US/ST=Alaska/L=Anchorage/O=Axiom Data Science/CN=thredds.example.com" \
+        -subj "/C=US/ST=Alaska/L=Anchorage/O=Axiom Data Science/CN=tomcat.example.com" \
         -keyout $CATALINA_HOME/conf/ssl.key \
         -out $CATALINA_HOME/conf/ssl.crt
 
