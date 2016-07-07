@@ -5,9 +5,7 @@ A feature full Tomcat (SSL over APR, etc.) running in Docker.
 ### Versions
 
 ### 8.0
-* `axiom/docker-tomcat` (latest stable release) [Dockerfile](https://github.com/axiom-data-science/docker-tomcat/blob/master/Dockerfile)
-* `axiom/docker-tomcat:8.0` (currently `8.0.36`) [Dockerfile](https://github.com/axiom-data-science/docker-tomcat/blob/8.0/Dockerfile)
-* `axiom/docker-tomcat:8.0.36`
+* `axiom/docker-tomcat:8.0.36` - [Dockerfile](https://github.com/axiom-data-science/docker-tomcat/blob/8.0.36/Dockerfile)
 
 ### tl;dr
 
