@@ -1,10 +1,21 @@
-FROM debian:stretch
+FROM debian:jessie
 MAINTAINER Kyle Wilcox <kyle@axiomdatascience.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 
 # Install system dependencies
+ENV OPENSSL_VERSION 1.0.2h-1
 RUN \
+    echo "deb http://httpredir.debian.org/debian unstable main" | tee /etc/apt/sources.list.d/unstable.list && \
+    { \
+        echo 'Package: *'; \
+        echo 'Pin: release a=unstable'; \
+        echo 'Pin-Priority: -10'; \
+        echo; \
+        echo 'Package: openssl libssl*'; \
+        echo "Pin: version $OPENSSL_VERSION"; \
+        echo 'Pin-Priority: 990'; \
+    } > /etc/apt/preferences.d/unstable-openssl && \
     echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
     echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | tee /etc/apt/sources.list.d/webupd8team-java.list && \
     echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" | tee -a /etc/apt/sources.list.d/webupd8team-java.list && \
@@ -19,7 +30,7 @@ RUN \
         libssl-dev \
         libterm-readline-gnu-perl \
         make \
-        openssl \
+        openssl="$OPENSSL_VERSION" \
         oracle-java8-installer \
         oracle-java8-set-default && \
     apt-get clean && \
